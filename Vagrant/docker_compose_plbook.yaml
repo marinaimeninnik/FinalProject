@@ -1,0 +1,27 @@
+# ---
+# - hosts: all
+  
+#   become: yes
+#   tasks:
+
+#   # Deploy docker compose
+
+#   - name: deploy Docker Compose
+#   community.docker.docker_compose:
+#     project_src: /home/maryna/Git/FinalProject/VagrantTest
+#     files:
+#     - docker-compose.yml
+
+- name: docker-compose with jenkins
+  hosts: all
+  tasks:
+
+  - name: copy docker-compose.yaml
+    copy:
+     src: JenkinsCompose/
+     dest: tmp/
+
+  - name: deploy docker-compose
+    docker_compose:
+      project_src: tmp/
+      state: present

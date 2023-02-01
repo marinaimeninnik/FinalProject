@@ -1,0 +1,6 @@
+---
+- hosts: docker
+  tasks:
+  - name: docker installation
+    ansible.builtin.shell: cd ~ && curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh
+    #ansible.builtin.shell: ansible-galaxy collection install community.docker

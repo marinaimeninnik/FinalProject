@@ -1,0 +1,6 @@
+# sample hosts
+[vagrant]
+192.168.0.220
+
+[aws]
+8.8.8.8

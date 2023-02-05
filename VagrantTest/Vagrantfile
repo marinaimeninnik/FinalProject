@@ -1,11 +1,17 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "hashicorp/bionic64"
-  config.vm.box_version = "1.0.282"
-  config.vm.box_download_insecure=true
+  config.vm.box = "generic/ubuntu2004"
+ # config.vm.box_version = "1.0.282"
 
-  config.vm.network "public_network", ip: "192.168.0.101"
-  config.vm.provider "virtualbox" do |vb|
-    vb.memory = "2048"
+  # config.vm.box_download_insecure=true
+
+  config.vm.network "public_network", bridge: "BRIDGE" # ip: "192.168.56.103"
+
+  config.vm.synced_folder '.', '/vagrant', disabled: true #turns off synced directory for successful running from win11 wsl
+
+  config.vm.provider "virtualbox" do |v|
+   # v.gui = true #launches gui
+    v.memory = "4096"
+    v.cpus = 4
   end
 
  # Run Ansible from the Vagrant Host

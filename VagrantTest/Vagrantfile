@@ -16,8 +16,8 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "docker_compose_plbook.yaml" #launch jenkins in docker container
   end
 
-  # config.vm.provision "ansible" do |ansible|
-  #   ansible.playbook = "creating_jenkins_user.yaml" #creates jenkins user
-  # end
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "creating_jenkins_user.yaml" #creates jenkins user
+  end
 
 end

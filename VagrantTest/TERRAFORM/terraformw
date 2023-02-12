@@ -10,8 +10,6 @@ apt update
 
 apt-get install -y wget
 
-wget
-
 wget -N -c https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh
 
 # Make installer executable
@@ -27,5 +25,7 @@ CUSTOMBIN=tw/.bin
 export PATH=$CUSTOMBIN:$PATH
 
 $CUSTOMBIN/tfswitch -b $CUSTOMBIN/terraform
+
+terraform --version
 
 terraform $*

@@ -5,7 +5,7 @@
 echo "Installing tfswitch locally"
 
 # Get the installer on to your machine
-sh "/usr/local/bin/wget 'ttps://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh'"
+sh "/usr/local/bin/wget 'https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh'"
 # wget -N -c https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh
 
 # Make installer executable

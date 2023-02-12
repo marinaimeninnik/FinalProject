@@ -26,6 +26,6 @@ export PATH=$CUSTOMBIN:$PATH
 
 #$CUSTOMBIN/tfswitch -b $CUSTOMBIN/terraform
 
-$CUSTOMBIN/tfswitch -b $CUSTOMBIN/terraform 1.3.7 #0.11.7
+tfswitch -b $CUSTOMBIN/terraform 1.3.7 #0.11.7
 
 terraform $*

@@ -8,11 +8,11 @@ Vagrant.configure("2") do |config|
 
  # Run Ansible from the Vagrant Host
 
-  config.vm.provision "docker installation" do |ansible|
+  config.vm.provision "ansible" do |ansible|
     ansible.playbook = "install_docker_plbook.yaml" #docker, docker-compose installation
   end
 
-  config.vm.provision "docker container with jenkins" do |ansible|
+  config.vm.provision "ansible" do |ansible|
     ansible.playbook = "docker_compose_plbook.yaml" #launch jenkins in docker container
   end
 

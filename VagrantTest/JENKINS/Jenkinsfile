@@ -1,19 +1,19 @@
 pipeline {
   agent any //{ label 'Buil-In Node'}
-  // options {
-  //   skipDefaultCheckout(true)
-  // }
-  // stages{
-  //   stage('clean workspace') {
-  //     steps {
-  //       cleanWs()
-  //     }
-  //   }
-  //   stage('checkout') {
-  //     steps {
-  //       checkout scm
-  //     }
-    
+  options {
+    skipDefaultCheckout(true)
+  }
+  stages{
+    stage('clean workspace') {
+      steps {
+        cleanWs()
+      }
+    }
+    stage('checkout') {
+      steps {
+        checkout scm
+      }
+    }
     stage('terraform') {
       steps {
         sh './terraformw apply -auto-approve -no-color'

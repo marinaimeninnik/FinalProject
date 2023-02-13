@@ -102,11 +102,11 @@ resource "aws_instance" "Ubuntu2004" {
     # "sudo mkdir /var/www/php/",
       "sudo apt-get -y install mysql-server",
       "sudo systemctl start mysql.service",
-      # "git clone https://github.com/marinaimeninnik/FinalProject.git",
-      # "sudo rm /var/www/html/index.html",
-      # "sudo cp /home/ubuntu/FinalProject/HTML/index.php /var/www/html",
-      # "sudo cp /home/ubuntu/FinalProject/HTML/127_0_0_1_1.sql /var/www/html",
-      # "sudo cp /home/ubuntu/FinalProject/HTML/connect.php /var/www/html"
+      "git clone https://github.com/marinaimeninnik/FinalProject.git",
+      "sudo rm /var/www/html/index.html",
+      "sudo cp /home/ubuntu/FinalProject/HTML/index.php /var/www/html",
+      "sudo cp /home/ubuntu/FinalProject/HTML/127_0_0_1_1.sql /var/www/html",
+      "sudo cp /home/ubuntu/FinalProject/HTML/connect.php /var/www/html"
 
     #   "mkdir data",
     #   "cd data",

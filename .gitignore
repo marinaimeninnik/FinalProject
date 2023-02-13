@@ -1,7 +1,7 @@
 .vagrant/
 ansible-aws-cli/
 TERRAFORM/terraform.tfstate
-TERRAFORM/.terraform.lock.hcl
+.terraform.lock.hcl
 TERRAFORM/terraform.tfstate.backup
-TERRAFORM/.terraform/providers/registry.terraform.io/hashicorp/aws/4.48.0/linux_amd64/terraform-provider-aws_v4.48.0_x5
+.terraform/providers/registry.terraform.io/hashicorp/aws/4.48.0/linux_amd64/terraform-provider-aws_v4.48.0_x5
 terraform.tfvars

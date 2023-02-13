@@ -99,13 +99,14 @@ resource "aws_instance" "Ubuntu2004" {
       "sudo apt-get -y install openjdk-8-jre-headless",
       "sudo apt update",
       "sudo apt-get -y install apache2",
-      "sudo mkdir /var/www/php/",
+    # "sudo mkdir /var/www/php/",
       "sudo apt-get -y install mysql-server",
       "sudo systemctl start mysql.service",
-      "git clone https://github.com/marinaimeninnik/FinalProject.git",
-      "sudo cp /home/ubuntu/FinalProject/HTML/index.php /var/www/php",
-      "sudo cp /home/ubuntu/FinalProject/HTML/127_0_0_1_1.sql /var/www/php",
-      "sudo cp /home/ubuntu/FinalProject/HTML/connect.php /var/www/php"
+      # "git clone https://github.com/marinaimeninnik/FinalProject.git",
+      # "sudo rm /var/www/html/index.html",
+      # "sudo cp /home/ubuntu/FinalProject/HTML/index.php /var/www/html",
+      # "sudo cp /home/ubuntu/FinalProject/HTML/127_0_0_1_1.sql /var/www/html",
+      # "sudo cp /home/ubuntu/FinalProject/HTML/connect.php /var/www/html"
 
     #   "mkdir data",
     #   "cd data",

@@ -35,6 +35,14 @@ resource "aws_security_group" "final-project" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # inbound internet access
+  ingress {
+    from_port   = 0
+    to_port     = 65535
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   # HTTP access from the internet
   egress {
     from_port   = 80
@@ -91,6 +99,10 @@ resource "aws_instance" "Ubuntu2004" {
       "sudo apt-get -y install openjdk-8-jre-headless",
       "sudo apt update",
       "sudo apt-get -y install apache2",
+      "sudo mkdir /var/www/gci/",
+      "sudo apt install mysql-server",
+      "sudo systemctl start mysql.service",
+
     #   "mkdir data",
     #   "cd data",
     #   "mkdir inbox",

@@ -100,7 +100,7 @@ resource "aws_instance" "Ubuntu2004" {
       "sudo apt update",
       "sudo apt-get -y install apache2",
       "sudo mkdir /var/www/gci/",
-      "sudo apt install mysql-server",
+      "sudo apt-get -y install mysql-server",
       "sudo systemctl start mysql.service",
 
     #   "mkdir data",

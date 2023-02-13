@@ -7,3 +7,5 @@ TERRAFORM/terraform.tfstate.backup
 terraform.tfvars
 VagrantTest/
 JENKINS/aws_credentials.env
+terraform.tfstate
+terraform.tfstate.backup

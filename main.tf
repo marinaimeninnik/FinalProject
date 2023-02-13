@@ -90,7 +90,7 @@ resource "aws_instance" "Ubuntu2004" {
       "sudo apt-get -y update",
       "sudo apt-get -y install openjdk-8-jre-headless",
       "sudo apt update",
-      "sudo apt install apache2",
+      "sudo apt-get -y install apache2",
     #   "mkdir data",
     #   "cd data",
     #   "mkdir inbox",

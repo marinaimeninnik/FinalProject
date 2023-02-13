@@ -10,10 +10,7 @@ pipeline {
         
         stage('SSH key creating'){
             steps {
-                sh ('pwd')
-                sh ('echo ====================')
                 sh ('''ssh-keygen -t rsa -f ~/.ssh/key_pair_aws_1_id_rsa -q -N ""''')
-                sh ('ls')
             }
         }
     

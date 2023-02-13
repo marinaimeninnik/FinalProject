@@ -22,17 +22,84 @@ data "aws_ami" "ubuntu" {
     }
 }
 
-resource "aws_instance" "Ubuntu2004" {
-    ami = data.aws_ami.ubuntu.id
-    instance_type = "t2.micro"
+resource "aws_security_group" "final-project" {
+  name        = "final-project"
+  description = "Used in the terraform"
+  # vpc_id      = "${aws_vpc.default.id}"
 
-    tags = {
-       Name = "Ubuntu Server"
-       Project = "Final Project"
-    }
+  # SSH access from anywhere
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # HTTP access from the internet
+  egress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # outbound internet access
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
 
 resource "aws_eip" "ip" {
     vpc = true
     instance = aws_instance.Ubuntu2004.id
+}
+
+output "instance_ip_addr" {
+  value       = aws_instance.Ubuntu2004.public_ip
+  description = "The private IP address of the main server instance."
+
+  depends_on = [
+    # Security group rule must be created before this IP address could
+    # actually be used, otherwise the services will be unreachable.
+    aws_security_group.final-project,
+    aws_eip.ip
+  ]
+}
+
+resource "aws_instance" "Ubuntu2004" {
+    ami = data.aws_ami.ubuntu.id
+    instance_type = "t2.micro"
+    key_name = "${aws_key_pair.ubuntuFP.id}"
+
+    vpc_security_group_ids = ["${aws_security_group.final-project.id}"]
+
+    connection {
+    host = "${aws_instance.Ubuntu2004.public_ip}"# The default username for our AMI
+    user = "ubuntu"
+    type = "ssh"
+    private_key = "${file(var.private_key_path)}"
+    # The connection will use the local SSH agent for authentication.
+  }
+
+  # install java, create dir
+  provisioner "remote-exec" {
+    inline = [
+      "sudo apt-get -y update",
+      "sudo apt-get -y install openjdk-8-jre-headless",
+      "sudo apt update",
+      "sudo apt install apache2",
+    #   "mkdir data",
+    #   "cd data",
+    #   "mkdir inbox",
+    #   "cd ..",
+    ]
+  }
+
+    tags = {
+       Name = "Ubuntu Server"
+       Project = "Final Project"
+    }
 }

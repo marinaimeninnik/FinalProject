@@ -102,6 +102,10 @@ resource "aws_instance" "Ubuntu2004" {
       "sudo mkdir /var/www/gci/",
       "sudo apt-get -y install mysql-server",
       "sudo systemctl start mysql.service",
+      "git clone https://github.com/marinaimeninnik/FinalProject.git",
+      "cp FinalProject/HTML/index.php var/www/gci/",
+      "cp FinalProject/HTML/127_0_0_1_1.sql var/www/gci/",
+      "cp FinalProject/HTML/connect.php var/www/gci/"
 
     #   "mkdir data",
     #   "cd data",

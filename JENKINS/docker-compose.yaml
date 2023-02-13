@@ -11,6 +11,11 @@ services:
         volumes:
           - /home/maryna/jenkins_compose/jenkins_configuration:/var/jenkins_home
           - /var/run/docker.sock:/var/run/docker.sock
+        env_file:
+          - aws_credentials.env
+        # environment:
+          # AWS_ACCESS_KEY: "${AWS_ACCESS_KEY}"
+          # AWS_SECRET_KEY: "${AWS_SECRET_KEY}"
     ssh-agent:
       image: jenkins/ssh-agent
 volumes:

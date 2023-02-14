@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+    
+    stage('Checkout') {
+        steps {
+            checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/marinaimeninnik/FinalProject.git']])
+            sh ('ls -la')
+        }
+    }
+
+    stage('deploy app and reports') {
+      steps {
+            sshagent(['jenkins-ec2']){
+                sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 54.235.131.77 uname -a'
+                sh "ssh -o StrictHostKeyChecking=no -l ubuntu 54.235.131.77 sudo rm /var/www/html/*.*"
+                sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 54.235.131.77 sudo chmod 777 /var/www/html/'
+                sh 'scp HTML/*.* ubuntu@54.235.131.77:/var/www/html/'
+
+       
+          }
+        }
+      }
+    }
+  }

@@ -9,19 +9,19 @@ Vagrant.configure("2") do |config|
  # Run Ansible from the Vagrant Host
 
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "install_docker_plbook.yaml" #docker, docker-compose installation
+    ansible.playbook = "ANSIBLE/install_docker_plbook.yaml" #docker, docker-compose installation
   end
 
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "docker_compose_plbook.yaml" #launch jenkins in docker container
+    ansible.playbook = "ANSIBLE/docker_compose_plbook.yaml" #launch jenkins in docker container
   end
 
   # config.vm.provision "ansible" do |ansible|
-  #   ansible.playbook = "creating_jenkins_user.yaml" #creates jenkins user
+  #   ansible.playbook = "ANSIBLE/creating_jenkins_user.yaml" #creates jenkins user
   # end
 
   # config.vm.provision "ansible" do |ansible|
-  #   ansible.playbook = "install_terraform_plbook.yaml" #creates jenkins user
+  #   ansible.playbook = "ANSIBLE/install_terraform_plbook.yaml" #creates jenkins user
   # end
 
 end

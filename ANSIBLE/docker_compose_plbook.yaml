@@ -18,7 +18,7 @@
 
   - name: copy docker-compose.yaml
     copy:
-     src: JenkinsCompose/
+     src: DOCKER/
      dest: tmp/
 
   - name: deploy docker-compose

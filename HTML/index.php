@@ -3,10 +3,10 @@
 <head>
     <meta charset = "UTF-8">
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-    <title>Registration Form Success</title>
+    <title>Registration Form</title>
 </head>
 
-<h1> Blood Donation Camp </h1>
+<h1> Blood Donation Camp Success! </h1>
 <body bgcolor="ADD8E6">
     <div><h2>Registration Form</h2></div>
     <form action = 'connect.php' method = "POST">

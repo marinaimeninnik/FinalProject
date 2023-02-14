@@ -14,7 +14,7 @@ pipeline {
             }
         }
     
-        stage("terraform init") {
+        stage("terraform initialization") {
             steps{
                 sh ("terraform init");
             }
@@ -24,6 +24,12 @@ pipeline {
             steps {
                 echo "Terraform action from the parameter is ${action}"
                 sh ("terraform ${action} -auto-approve")
+            }
+        }
+
+        stage ('started build infrastructure'){
+            steps{
+                build job: 'build-infrastructure', parameters: [string(name: 'action', value: 'apply')]
             }
         }
     }

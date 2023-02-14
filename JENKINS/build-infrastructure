@@ -26,11 +26,5 @@ pipeline {
                 sh ("terraform ${action} -auto-approve")
             }
         }
-
-        stage ('started build infrastructure'){
-            steps{
-                build job: 'build-infrastructure', parameters: [string(name: 'action', value: 'apply')]
-            }
-        }
     }
 }

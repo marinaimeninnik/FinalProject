@@ -10,7 +10,7 @@ pipeline {
         }
     }
 
-    stage('deploy app and reports') {
+    stage('deploying code') {
       steps {
             sshagent(['jenkins-ec2']){
                 sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 54.235.131.77 uname -a'

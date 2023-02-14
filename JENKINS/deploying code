@@ -13,10 +13,10 @@ pipeline {
     stage('deploying code') {
       steps {
             sshagent(['jenkins-ec2']){
-                sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 54.235.131.77 uname -a'
-                sh "ssh -o StrictHostKeyChecking=no -l ubuntu 54.235.131.77 sudo rm /var/www/html/*.*"
-                sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 54.235.131.77 sudo chmod 777 /var/www/html/'
-                sh 'scp HTML/*.* ubuntu@54.235.131.77:/var/www/html/'
+                sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 3.213.232.65 uname -a'
+                sh "ssh -o StrictHostKeyChecking=no -l ubuntu 3.213.232.65 sudo rm /var/www/html/*.*"
+                sh 'ssh -o StrictHostKeyChecking=no -l ubuntu 3.213.232.65 sudo chmod 777 /var/www/html/'
+                sh 'scp HTML/*.* ubuntu@3.213.232.65:/var/www/html/'
 
        
           }

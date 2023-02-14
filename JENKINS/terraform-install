@@ -38,6 +38,12 @@ pipeline {
                 sh ('terraform version')
             }
         }
+
+        stage ('started build infrastructure'){
+            steps{
+                build job: 'build-infrastructure', parameters: [string(name: 'action', value: 'apply')]
+            }
+        }
            
     }
 }

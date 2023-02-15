@@ -9,9 +9,11 @@ $servername = "databasefp.cm6htjqaiy1e.us-east-1.rds.amazonaws.com";
 $username = "maynaDB";
 $password = "12345678";
 $dbname = "database_1";
+$dbport = "3306";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+//$link = new mysqli($_SERVER['RDS_HOSTNAME'], $_SERVER['RDS_USERNAME'], $_SERVER['RDS_PASSWORD'], $_SERVER['RDS_DB_NAME'], $_SERVER['RDS_PORT']);
+$conn = new mysqli($servername, $username, $password, $dbname, $dbport);
 
 // Chaeck connection
 if ($conn->connect_error) {

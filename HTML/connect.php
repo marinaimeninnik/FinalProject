@@ -18,11 +18,11 @@
                 echo 'Error Occurred';
             }
         }
-
-        echo "Test1";
-        $conn= mysqli_connect('localhost', 'root', '123456', 'database_1') or die ("Connection Failed:" .mysql_connect_error());
-        echo "Test2";
         // $conn->close();
     }
+
+    echo "Test1";
+        $conn= mysqli_connect('localhost', 'root', '123456', 'database_1') or die ("Connection Failed:" .mysql_connect_error());
+        echo "Test2";
 
 ?>

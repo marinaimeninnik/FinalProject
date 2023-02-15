@@ -17,8 +17,8 @@
             else {
                 echo 'Error Occurred';
             }
-         mysql_close($conn);
         }
+        mysql_close($conn);
     }
 
 ?>

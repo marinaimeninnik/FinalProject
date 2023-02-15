@@ -5,7 +5,7 @@ $email = $_POST['email'];
 $phone = $_POST['phone'];
 $bgroup = $_POST['bgroup'];
 
-$servername = "database1.cm6htjqaiy1e.us-east-1.rds.amazonaws.com";
+$servername = "databasefp.cm6htjqaiy1e.us-east-1.rds.amazonaws.com";
 $username = "maynaDB";
 $password = "12345678";
 $dbname = "database_1";

@@ -17,13 +17,13 @@ data "aws_ami" "ubuntu" {
     most_recent = true
     filter {
         name = "name"
-        values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-20230207"]
-        # values = ["ubuntu/images/ubuntu-ami-hvm-*-x86_64-gp2"]
+        # values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-20230207"]
+        values = ["amazon/amzn2-ami-kernel-5.10-hvm-2.0.20230207.0-x86_64-gp2"]
     }
 }
 
-resource "aws_security_group" "final-project" {
-  name        = "final-project"
+resource "aws_security_group" "final-project1" {
+  name        = "final-project1"
   description = "Used in the terraform"
   # vpc_id      = "${aws_vpc.default.id}"
 
@@ -72,7 +72,7 @@ output "instance_ip_addr" {
   depends_on = [
     # Security group rule must be created before this IP address could
     # actually be used, otherwise the services will be unreachable.
-    aws_security_group.final-project,
+    aws_security_group.final-project1,
     aws_eip.ip
   ]
 }
@@ -82,7 +82,7 @@ resource "aws_instance" "Ubuntu2004" {
     instance_type = "t2.micro"
     key_name = "${aws_key_pair.ubuntuFP.id}"
 
-    vpc_security_group_ids = ["${aws_security_group.final-project.id}"]
+    vpc_security_group_ids = ["${aws_security_group.final-project1.id}"]
 
     connection {
     host = "${aws_instance.Ubuntu2004.public_ip}"# The default username for our AMI
@@ -95,28 +95,39 @@ resource "aws_instance" "Ubuntu2004" {
   # install java, create dir
   provisioner "remote-exec" {
     inline = [
-      "sudo apt-get -y update",
-      "sudo apt-get -y install openjdk-8-jre-headless",
-      "sudo apt update",
-      "sudo apt-get -y install apache2",
-    # "sudo mkdir /var/www/php/",
-      # "sudo apt-get -y install mysql-server",
-      # "sudo systemctl start mysql.service",
-      # "git clone https://github.com/marinaimeninnik/FinalProject.git",
-      # "sudo rm /var/www/html/index.html",
-      # "sudo cp /home/ubuntu/FinalProject/HTML/index.php /var/www/html",
-      # "sudo cp /home/ubuntu/FinalProject/HTML/127_0_0_1_1.sql /var/www/html",
-      # "sudo cp /home/ubuntu/FinalProject/HTML/connect.php /var/www/html"
 
-    #   "mkdir data",
-    #   "cd data",
-    #   "mkdir inbox",
-    #   "cd ..",
+      //for amazon-2 linux instance,
+      //installation Apache web server with PHP and MariaDB,
+
+      "sudo yum update -y",
+      "sudo amazon-linux-extras install php8.0 mariadb10.5",
+      "cat /etc/system-release",
+      "sudo yum install -y httpd",
+      "sudo systemctl start httpd",
+      "sudo systemctl enable httpd",
+
+      //configurations
+
+      # "sudo usermod -a -G apache ec2-user",
+      # "exit",
+      # "groups",
+      # "ec2-user adm wheel apache systemd-journal",
+      # "sudo chown -R ec2-user:apache /var/www",
+      # "sudo chmod 2775 /var/www",
+      # "find /var/www -type d -exec sudo chmod 2775 {} \;"",
+      # "find /var/www -type f -exec sudo chmod 0664 {} \;"",
+
+      # // for ubuntu instnce
+
+      # "sudo apt-get -y update",
+      # "sudo apt-get -y install openjdk-8-jre-headless",
+      # "sudo apt update",
+      # "sudo apt-get -y install apache2",
     ]
   }
 
     tags = {
-       Name = "Ubuntu Server"
+       Name = "Amazon Linux 2"
        Project = "Final Project"
     }
 }

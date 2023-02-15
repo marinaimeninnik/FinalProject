@@ -9,7 +9,7 @@
 
             $sql= "INSERT INTO `users` (`name`, `email`, `phone`, `bgroup`)  VALUES ('$name', '$email', '$phone', '$bgroup')";
 
-            $query = mysqli_query($conn,$sql);
+            $query = mysqli_query($link,$sql);
             if($query) {
                 echo 'Entry Successfull';
             }

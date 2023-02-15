@@ -2,7 +2,7 @@
     
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 
-        echo "Test3"
+        echo "Test3";
  
         if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['bgroup'])) {
             $name= $_POST['name'];

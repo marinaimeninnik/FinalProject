@@ -18,7 +18,7 @@
                 echo 'Error Occurred';
             }
         }
-        mysql_close($conn);
+        $conn->close();
     }
 
 ?>

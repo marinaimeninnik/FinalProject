@@ -13,7 +13,7 @@ provider aws {
     region     = "${var.AWS_REGION}"
 }
 
-data "aws_ami" "ubuntu" {
+data "aws_ami" "amazon" {
     most_recent = true
     filter {
         name = "name"
@@ -62,11 +62,11 @@ resource "aws_security_group" "final-project1" {
 
 resource "aws_eip" "ip" {
     vpc = true
-    instance = aws_instance.Ubuntu2004.id
+    instance = aws_instance.AmazonEC2.id
 }
 
 output "instance_ip_addr" {
-  value       = aws_instance.Ubuntu2004.public_ip
+  value       = aws_instance.AmazonEC2.public_ip
   description = "The private IP address of the main server instance."
 
   depends_on = [
@@ -77,16 +77,16 @@ output "instance_ip_addr" {
   ]
 }
 
-resource "aws_instance" "Ubuntu2004" {
-    ami = data.aws_ami.ubuntu.id
+resource "aws_instance" "AmazonEC2" {
+    ami = data.aws_ami.amazon.id
     instance_type = "t2.micro"
     key_name = "${aws_key_pair.ubuntuFP.id}"
 
     vpc_security_group_ids = ["${aws_security_group.final-project1.id}"]
 
     connection {
-    host = "${aws_instance.Ubuntu2004.public_ip}"# The default username for our AMI
-    user = "ubuntu"
+    host = "${aws_instance.AmazonEC2.public_ip}"# The default username for our AMI
+    user = "ec2-user"
     type = "ssh"
     private_key = "${file(var.private_key_path)}"
     # The connection will use the local SSH agent for authentication.

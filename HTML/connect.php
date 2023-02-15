@@ -5,16 +5,17 @@ $email = $_POST['email'];
 $phone = $_POST['phone'];
 $bgroup = $_POST['bgroup'];
 
-$servername = "databasefp.cm6htjqaiy1e.us-east-1.rds.amazonaws.com";
-$username = "maynaDB";
-$password = "12345678";
-$dbname = "database_1";
-$dbport = "3306";
+// $servername = "databasefp.cm6htjqaiy1e.us-east-1.rds.amazonaws.com";
+// $username = "maynaDB";
+// $password = "12345678";
+// $dbname = "database_1";
+// $dbport = "3306";
 
 // Create connection
-//$link = new mysqli($_SERVER['RDS_HOSTNAME'], $_SERVER['RDS_USERNAME'], $_SERVER['RDS_PASSWORD'], $_SERVER['RDS_DB_NAME'], $_SERVER['RDS_PORT']);
 echo "test1";
-$conn = new mysqli($servername, $username, $password, $dbname, $dbport);
+$conn = new mysqli($_SERVER['databasefp.cm6htjqaiy1e.us-east-1.rds.amazonaws.com'], $_SERVER['marynaDB'], $_SERVER['12345678'], $_SERVER['database_1'], $_SERVER['3306']);
+
+//$conn = new mysqli($servername, $username, $password, $dbname, $dbport);
 echo "test 2";
 
 // Chaeck connection

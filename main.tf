@@ -13,7 +13,7 @@ provider aws {
     region     = "${var.AWS_REGION}"
 }
 
-data "aws_ami" "amzn2" {
+data "aws_ami" "amazon-linux-2" {
     most_recent = true
     filter {
         name = "name"
@@ -78,7 +78,7 @@ output "instance_ip_addr" {
 }
 
 resource "aws_instance" "AmazonEC2" {
-    ami = data.aws_ami.amzn2.id
+    ami = data.aws_ami.amazon-linux-2.id
     instance_type = "t2.micro"
     key_name = "${aws_key_pair.ubuntuFP.id}"
 

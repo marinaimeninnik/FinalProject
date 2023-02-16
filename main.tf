@@ -28,6 +28,9 @@ resource "aws_security_group" "final-project1" {
   name        = "final-project1"
   description = "Used in the terraform"
   # vpc_id      = "${aws_vpc.default.id}"
+  lifecycle {
+    create_before_destroy = true
+  }
 
   # SSH access from anywhere
   ingress {

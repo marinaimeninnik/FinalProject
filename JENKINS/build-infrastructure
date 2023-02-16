@@ -8,11 +8,11 @@ pipeline {
             }
         }
         
-        stage('SSH key creating'){
-            steps {
-                sh ('''ssh-keygen -t rsa -f ~/.ssh/key_pair_aws_1_id_rsa -q -N ""''')
-            }
-        }
+        // stage('SSH key creating'){
+        //     steps {
+        //         sh ('''ssh-keygen -t rsa -f ~/.ssh/key_pair_aws_1_id_rsa -q -N ""''')
+        //     }
+        // }
     
         stage("terraform initialization") {
             steps{

@@ -75,8 +75,6 @@ output "instance_ip_addr" {
   description = "The private IP address of the main server instance."
 
   depends_on = [
-    # Security group rule must be created before this IP address could
-    # actually be used, otherwise the services will be unreachable.
     aws_security_group.final-project1,
     aws_eip.ip
   ]
@@ -105,7 +103,7 @@ resource "aws_instance" "AmazonEC2" {
       //installation Apache web server with PHP and MariaDB,
 
       "sudo yum update -y",
-      "sudo amazon-linux-extras install php8.0 mariadb10.5",
+      "sudo amazon-linux-extras install php8.0 mariadb10.5 -y",
       "cat /etc/system-release",
       "sudo yum install -y httpd",
       "sudo systemctl start httpd",

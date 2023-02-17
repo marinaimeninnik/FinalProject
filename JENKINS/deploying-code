@@ -15,10 +15,9 @@ pipeline {
             sshagent(['jenkins-ec2']){
                 sh 'ssh -o StrictHostKeyChecking=no -l ec2-user 52.45.93.87 uname -a'
                 sh "ssh -o StrictHostKeyChecking=no -l ec2-user 52.45.93.87 cd /var/www"
-                // sh 'ssh -o StrictHostKeyChecking=no -l ec2-user 52.45.93.87 sudo chmod 777 /var/www/html/'
+                sh 'ssh -o StrictHostKeyChecking=no -l ec2-user 52.45.93.87 sudo chmod 2775 /var/www'
+                sh 'ssh -o StrictHostKeyChecking=no -l ec2-user 52.45.93.87 sudo chmod -R 0664 /var/www'
                 sh 'scp -r HTML/* ec2-user@52.45.93.87:/var/www/html/'
-
-       
           }
         }
       }

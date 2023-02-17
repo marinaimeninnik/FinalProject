@@ -1,13 +1,13 @@
 
-<!-- <?php include "../inc/dbinfo.inc"; ?> -->
+<?php include "inc/dbinfo.inc"; ?>
 <html>
 <body>
 <h1>Sample page</h1>
 <?php
-  define('DB_SERVER', "databasefp.cm6htjqaiy1e.us-east-1.rds.amazonaws.com");
-  define('DB_USERNAME', "marynaDB");
-  define('DB_PASSWORD', "12345678");
-  define('DB_DATABASE', "sample");
+  // define('DB_SERVER', "databasefp.cm6htjqaiy1e.us-east-1.rds.amazonaws.com");
+  // define('DB_USERNAME', "marynaDB");
+  // define('DB_PASSWORD', "12345678");
+  // define('DB_DATABASE', "sample");
   /* Connect to MySQL and select the database. */
   $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
 

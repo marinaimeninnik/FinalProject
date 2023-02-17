@@ -14,7 +14,7 @@ pipeline {
       steps {
             sshagent(['jenkins-ec2']){
                 sh 'ssh -o StrictHostKeyChecking=no -l ec2-user 52.45.93.87 uname -a'
-                sh 'scp -r HTML/* ec2-user@52.45.93.87:/var/www/html/'
+                sh 'scp -r HTML/* ec2-user@52.45.93.87:/var/www/html/'       
           }
         }
       }

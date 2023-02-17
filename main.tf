@@ -108,24 +108,17 @@ resource "aws_instance" "AmazonEC2" {
       "sudo yum install -y httpd",
       "sudo systemctl start httpd",
       "sudo systemctl enable httpd",
+      "sudo chmod 777 /var/www/html/",
 
-      //configurations
+      //secutity configurations
 
-      # "sudo usermod -a -G apache ec2-user",
+      # "sudo su",
+      # "usermod -a -G apache ec2-user",
       # "exit",
-      # "groups",
-      # "ec2-user adm wheel apache systemd-journal",
       # "sudo chown -R ec2-user:apache /var/www",
       # "sudo chmod 2775 /var/www",
-      # "find /var/www -type d -exec sudo chmod 2775 {} \;"",
-      # "find /var/www -type f -exec sudo chmod 0664 {} \;"",
-
-      # // for ubuntu instnce
-
-      # "sudo apt-get -y update",
-      # "sudo apt-get -y install openjdk-8-jre-headless",
-      # "sudo apt update",
-      # "sudo apt-get -y install apache2",
+      # "find /var/www -type d -exec sudo chmod 2775 {} \;",
+      # "find /var/www -type f -exec sudo chmod 0664 {} \;",
     ]
   }
 

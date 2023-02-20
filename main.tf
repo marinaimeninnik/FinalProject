@@ -19,7 +19,6 @@ data "aws_ami" "amazon-linux-2" {
     filter {
         name = "name"
         # values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-20230207"]
-        # values = ["amazon/amzn2-ami-kernel-5.10-hvm-2.0.20230207.0-x86_64-gp2"]
         values = ["amzn2-ami-kernel-*-hvm-*-x86_64-gp2"]
     }
 }
@@ -95,7 +94,6 @@ resource "aws_instance" "AmazonEC2" {
     # The connection will use the local SSH agent for authentication.
   }
 
-  # install java, create dir
   provisioner "remote-exec" {
     inline = [
 

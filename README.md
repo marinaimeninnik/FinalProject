@@ -1,39 +1,39 @@
 # FinalProject
 
-Notes for successfull deployment HTML/SampePage.php
+<br>Notes for successfull deployment HTML/SampePage.php</br>
 
-1) Fork the repository.
+<br>1) Fork the repository.</br>
 
-2) Create file ANSIBLE/DOCKER/aws_credentials.env with AWS credentials with such a look:
+<br>2) Create file ANSIBLE/DOCKER/aws_credentials.env with AWS credentials with such a look:</br>
 <br>![AWS_cred](https://github.com/marinaimeninnik/FinalProject/blob/main/pictures/Screenshot%20from%202023-02-20%2011-10-52.png)</br>
 
-3) In main directory execute next commands: 
-$ vagrant init 
-$ vagrant up
-Vagrant will up local virtual instance with docker dontainer eith Jenkins in it
+<br>3) In main directory execute next commands:</br>
+<br>$ vagrant init</br>
+<br>$ vagrant up</br>
+<br>Vagrant will up local virtual instance with docker dontainer eith Jenkins in it</br>
 
-4) JEKINS pipeline should be created  manually with such configurations:
+<br>4) JEKINS pipeline should be created  manually with such configurations:</br>
 
-Plugins that shoud be installed:
-- SSH Agent
-- SSH Pipeline steps
+<br>Plugins that shoud be installed:</br>
+<br>- SSH Agent</r>
+<br>- SSH Pipeline steps</br>
 
-Pipeline terraform-installation configuration:
+<br>Pipeline terraform-installation configuration:</br>
 
-Definition - Pipeline script from SCM
-SCM - Git
-Repository URL - https://github.com/marinaimeninnik/FinalProject.git
-Branch specifier - */main
-Script path - JENKINS/terraform-install
+<br>Definition - Pipeline script from SCM</br>
+<br>SCM - Git</br>
+<br>Repository URL - https://github.com/marinaimeninnik/FinalProject.git</br>
+<br>Branch specifier - */main</br>
+<br>Script path - JENKINS/terraform-install</br>
 
-Webhook
-To translate localhost:8080 into web-address ngrok used.
+<br>Webhook configuration</br>
+<br>To translate localhost:8080 into web-address ngrok used.</br>
 
-Setup:
-$ curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok 
+<br>Setup:</br>
+<br>$ curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok </br>
 
-Execute:
-$ ngrok http 8080
+<br>Execute:</br>
+<br>$ ngrok http 8080</br>
 
 Pipeline build-infrastructure configuration:
 

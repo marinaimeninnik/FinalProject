@@ -4,7 +4,7 @@ Notes for successfull deployment HTML/SampePage.php
 
 1) Fork the repository.
 2) Create file ANSIBLE/DOCKER/aws_credentials.env with AWS credentials
-<br>![MySQL-install](https://github.com/marinaimeninnik/DataBases/blob/mainDBs/Pictures/DB_hw_p1_st1_2.png)</br>
+<br>![MySQL-install]()</br>
 JEKINS
 
 Plugins that shoud be installed:

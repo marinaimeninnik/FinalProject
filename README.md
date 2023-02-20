@@ -54,13 +54,18 @@ Branch specifier - */main
 
 Script path - JENKINS/build-infrastructure
 
-Pipeline deploying-code first configuration:
+<br>Pipeline deploying-code first configuration:</br>
 
-Create Jenkins credentials:
+<br>Jenkins credentials creation:</br>
+
 on EC2 instance:
+
 in .ssh directory --> $ ssh-keygen
+
 $ cat id_rsa.pub > authorized_keys
+
 $ cat id_rsa --> input this key into jenkins credentials
+
 use user "ubuntu" for ubuntu instance
     user "ec2-user" for Amazon Linux 2 instance
 

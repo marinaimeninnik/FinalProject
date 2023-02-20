@@ -2,15 +2,15 @@
 
 <br>Notes for successfull deployment HTML/SampePage.php</br>
 
-<br>1) Fork the repository.</br>
+1) Fork the repository.
 
-<br>2) Create file ANSIBLE/DOCKER/aws_credentials.env with AWS credentials with such a look:</br>
+2) Create file ANSIBLE/DOCKER/aws_credentials.env with AWS credentials with such a look:
 <br>![AWS_cred](https://github.com/marinaimeninnik/FinalProject/blob/main/pictures/Screenshot%20from%202023-02-20%2011-10-52.png)</br>
 
-<br>3) In main directory execute next commands:</br>
-<br>$ vagrant init</br>
-<br>$ vagrant up</br>
-<br>Vagrant will up local virtual instance with docker dontainer eith Jenkins in it</br>
+<br>3) In main directory execute next commands:
+$ vagrant init
+$ vagrant up
+Vagrant will up local virtual instance with docker dontainer eith Jenkins in it</br>
 
 <br>4) JEKINS pipeline should be created  manually with such configurations:</br>
 

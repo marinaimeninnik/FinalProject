@@ -19,7 +19,6 @@
 <br>- SSH Pipeline steps</br>
 
 <br>Pipeline terraform-installation configuration:</br>
-
 <br>Definition - Pipeline script from SCM</br>
 <br>SCM - Git</br>
 <br>Repository URL - https://github.com/marinaimeninnik/FinalProject.git</br>
@@ -28,20 +27,18 @@
 
 <br>Webhook configuration</br>
 <br>To translate localhost:8080 into web-address ngrok used.</br>
-
 <br>Setup:</br>
 <br>$ curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok </br>
-
 <br>Execute:</br>
 <br>$ ngrok http 8080</br>
 
-Pipeline build-infrastructure configuration:
+<br>Pipeline build-infrastructure configuration:</br>
 
-This project is parameterizes - true:
+<br>This project is parameterizes - true:
     Name - action
     Choises - apply
               destroy
-    Description - What do you want to do with terraform APPLY or DESTROY?
+    Description - What do you want to do with terraform APPLY or DESTROY?</br>
 
 Definition - Pipeline script from SCM
 SCM - Git

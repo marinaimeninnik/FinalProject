@@ -2,7 +2,7 @@
 <?php include "inc/dbinfo.inc"; ?>
 <html>
 <body>
-<h1>Sample page</h1>
+<h1>Sample page YES</h1>
 <?php
   $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
 
